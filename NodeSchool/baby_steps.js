@@ -1,5 +1,7 @@
 // NodeSchool - LearnYouNode - Challenge #2
 
+// https://github.com/workshopper/learnyounode/blob/master/exercises/baby_steps/problem.md
+
 // Write a program that accepts one or more numbers as command-line arguments and prints the sum of those numbers to the console.
 
 // You can access command-line arguments via the global process object. 
