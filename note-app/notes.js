@@ -35,7 +35,10 @@ var listNotes = () => {
 };
 
 var readNote = ( title ) => {
-	console.log( 'Reading note: ', title );
+	var notes = fetchNotes(),
+		filteredNotes = notes.filter( ( note ) => note.title === title );
+		
+	if( filteredNotes ) return filteredNotes[0];
 }
 
 var removeNote = ( title ) => {
