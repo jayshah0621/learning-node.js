@@ -16,13 +16,12 @@ var saveNote = ( notes ) => {
 };
 
 var addNote = ( title, body ) => {
-	var notes 	= fetchNotes();
-	var note 	= {
+	var notes 	= fetchNotes(),
+		note 	= {
 					title,
 					body
-				};
-
-	var duplicateNotes = notes.filter( ( note ) => note.title === title );
+				},
+		duplicateNotes = notes.filter( ( note ) => note.title === title );
 
 	if( duplicateNotes.length === 0 ) {
 		notes.push( note );
@@ -40,7 +39,13 @@ var readNote = ( title ) => {
 }
 
 var removeNote = ( title ) => {
-	console.log( 'Removing note: ', title );
+	var notes = fetchNotes(),
+		uniqueNotes = notes.filter( ( note ) => note.title !== title ),
+		boolNoteFound = notes.length !== uniqueNotes.length;
+
+	if( boolNoteFound ) saveNote(uniqueNotes);
+
+	return boolNoteFound;
 }
 
 module.exports = {
