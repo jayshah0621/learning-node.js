@@ -13,7 +13,9 @@ console.log(`Performing Operation: ${command}.`);
 
 switch( command ) {
 	case 'add':
-		notes.addNote( argv.title, argv.body );
+		var note = notes.addNote( argv.title, argv.body );
+		if( note ) console.log( 'Note created succesfully.' );
+		else console.log( `${argv.title} already exists.` );
 		break;
 	case 'list':
 		notes.listNotes();
