@@ -24,10 +24,11 @@ switch( command ) {
 		notes.readNote( argv.title );
 		break;
 	case 'remove':
-		notes.removeNote( argv.title );
+		var noteRemoved = notes.removeNote( argv.title );
+		var msg = noteRemoved ? `${argv.title} removed.` : `${argv.title} not found.`;
+		console.log( msg );
 		break;
 	default:
 		console.log('Command not recognized.');
 		break;
-
 }
