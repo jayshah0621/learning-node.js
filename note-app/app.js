@@ -18,10 +18,18 @@ switch( command ) {
 		else console.log( `${argv.title} already exists.` );
 		break;
 	case 'list':
-		notes.listNotes();
+		var note = notes.listNotes();
 		break;
 	case 'read':
-		notes.readNote( argv.title );
+		var note = notes.readNote( argv.title );
+
+		if( note ) {
+			console.log( `${argv.title} found.` );
+			console.log( '--' );
+			console.log( `Note Body: ${note.body}` );
+		}else {
+			console.log( `${argv.title} not found.` );
+		}
 		break;
 	case 'remove':
 		var noteRemoved = notes.removeNote( argv.title );
