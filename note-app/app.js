@@ -25,8 +25,7 @@ switch( command ) {
 
 		if( note ) {
 			console.log( `${argv.title} found.` );
-			console.log( '--' );
-			console.log( `Note Body: ${note.body}` );
+			notes.logNote( note );
 		}else {
 			console.log( `${argv.title} not found.` );
 		}
