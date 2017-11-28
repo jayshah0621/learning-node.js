@@ -18,7 +18,9 @@ switch( command ) {
 		else console.log( `${argv.title} already exists.` );
 		break;
 	case 'list':
-		var note = notes.listNotes();
+		var allNotes = notes.listNotes();
+		console.log( `Listing ${allNotes.length} note(s)` );
+		allNotes.forEach( ( note ) => { notes.logNote( note ); } );
 		break;
 	case 'read':
 		var note = notes.readNote( argv.title );
