@@ -51,9 +51,16 @@ var removeNote = ( title ) => {
 	return boolNoteFound;
 }
 
+var logNote = ( note ) => {
+	console.log( '--' );
+	console.log( `Title: ${note.title}` );
+	console.log( `Body: ${note.body}` );
+};
+
 module.exports = {
 	addNote,
 	listNotes,
 	readNote,
-	removeNote
+	removeNote,
+	logNote
 };
