@@ -75,6 +75,18 @@ MongoClient.connect( 'mongodb://localhost:27017/ToDoApp', ( err, db ) => {
 
 		console.log( JSON.stringify( res.ops, undefined, 2 ) );
 	});
+	
+	db.collection('Users').insertOne({
+		name: 'Jay Shah',
+		age: 28,
+		location: 'Jersey City'
+	}, ( err, res ) => {
+		if( err ) {
+			return console.log( 'Unable to insert user', err );
+		}
+
+		console.log( JSON.stringify( res.ops, undefined, 2 ) );
+	});
 
 	db.close();
 } );
