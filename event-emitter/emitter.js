@@ -1,13 +1,19 @@
-var Emitter = require('./emitter');
+function Emitter() {
+    this.events = {};
+}
 
-var emtr = new Emitter();
+Emitter.prototype.on = function(type, listener) {
+    this.events[type] = this.events[type] || [];
+    this.events[type].push(listener);
 
-emtr.on('greet', () => {
-    console.log('Greet event emitted.');
-});
+};
 
-emtr.on('greet', () => {
-    console.log('Greet event emitted another time.');
-});
+Emitter.prototype.emit = function(type) {
+    if( this.events[type] ) {
+        this.events[type].forEach(listener => {
+            listener();
+        });
+    }
+};
 
-emtr.emit('greet');
+module.exports = Emitter;
